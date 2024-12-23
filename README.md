@@ -40,4 +40,23 @@ The project includes:
 - Configured Athena to access logs stored in S3.
 - Created an external table in Athena for the ALB logs using the following schema:
 
-```sql
+sql query 
+
+Step 6: Analyze with QuickSight
+Connected QuickSight to Athena for data visualization.
+Created dashboards to visualize metrics such as HTTP request counts and client IP distributions.
+Queries Used
+Example query to count HTTP GET requests by client IP:
+
+SQL
+---
+SELECT COUNT(request_verb) AS count, request_verb, client_ip
+FROM alb_logs
+GROUP BY request_verb, client_ip
+LIMIT 100;
+Results and Insights
+Collected and analyzed log data using Athena.
+Visualized data in QuickSight to identify trends in application traffic.
+
+Cleanup
+Deleted all AWS resources post-project to minimize costs.
